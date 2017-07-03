@@ -1,7 +1,10 @@
-vendor
-node_modules
-package-lock.json
-Homestead.yaml
-Vagrantfile
-after.sh
 aliases
+node_modules
+storage
+vendor
+Homestead.json
+Homestead.yaml
+.env
+Vagrantfile
+.vagrant
+launch.json
