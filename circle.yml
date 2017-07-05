@@ -1,0 +1,24 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  php:
+    version: 7.1.3
+
+dependencies:
+  pre:
+    - composer config -g github-oauth.github.com $GITHUB_OAUTH_TOKEN
+    - sudo mkdir -p /home/basic-laravel/storage/{app,framework,logs}
+    - sudo mkdir -p /home/basic-laravel/storage/framework/{cache,sessions,views}
+    - sudo chmod 777 -R /home/basic-laravel/storage
+  override:
+    - composer install --prefer-dist --no-interaction
+  cache_directories:
+    - ~/.composer/cache
+  post:
+    - composer run ci-env-setup
+
+test:
+  override:
+    # - php security-checker.phar security:check
+    - php artisan code-sniffer
+    - vendor/bin/phpunit -d memory_limit=512M
