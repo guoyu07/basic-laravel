@@ -32,3 +32,4 @@ test:
     # - php security-checker.phar security:check
     - php artisan code-sniffer
     - vendor/bin/phpunit -d memory_limit=512M
+    - php artisan dusk

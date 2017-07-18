@@ -25,7 +25,7 @@ class Codesniffer extends Command
         $command .= "| grep .php";
         exec($command, $output);
 
-        $this->grepDiffForDebugCode();
+        // $this->grepDiffForDebugCode();
 
         // remain the same
         if (empty($output)) {
