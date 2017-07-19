@@ -40,8 +40,8 @@ test:
   override:
     # - php security-checker.phar security:check
     #- php artisan code-sniffer
-    - php artisan dusk
-    - vendor/bin/phpunit -d memory_limit=512M
     - php vendor/bin/phpcs routes/
     - php vendor/bin/phpcs app/
     - php vendor/bin/phpcs config/
+    - php artisan dusk
+    - vendor/bin/phpunit -d memory_limit=512M
