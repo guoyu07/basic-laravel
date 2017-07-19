@@ -47,12 +47,6 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
-        ],
-        "ci-env-setup": [
-            "php -r \"copy('.env.ci', '.env');\"",
-            "php artisan config:cache",
-            "php artisan key:generate",
-            "php artisan config:cache"
         ]
     },
     "config": {

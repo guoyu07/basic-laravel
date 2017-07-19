@@ -6,8 +6,8 @@ machine:
   environment:
     DB_CONNECTION: circle_test
     APP_ENV: testing
-  services:
-    - mysql
+  # services:
+  #   - mysql
   # database:
   #   override:
   #     - "php artisan migrate"
@@ -24,10 +24,17 @@ dependencies:
     - composer install --prefer-dist --no-interaction
   cache_directories:
     - ~/.composer/cache
-  post:
-    - composer run ci-env-setup
 
 test:
+  pre:
+    - "./vendor/laravel/dusk/bin/chromedriver-linux":
+        background: true
+    - cp .env.ci .env
+    - php artisan config:cache
+    - php artisan key:generate
+    - php artisan config:cache
+    - "php artisan serve":
+        background: true
   override:
     # - php security-checker.phar security:check
     #- php artisan code-sniffer
