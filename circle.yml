@@ -44,4 +44,4 @@ test:
     - php vendor/bin/phpcs app/
     - php vendor/bin/phpcs config/
     - php artisan dusk
-    - vendor/bin/phpunit -d memory_limit=512M
+    - vendor/bin/phpunit -d memory_limit=512M --coverage-html=$CIRCLE_ARTIFACTS
